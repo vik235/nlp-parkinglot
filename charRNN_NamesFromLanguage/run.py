@@ -11,13 +11,15 @@ import math
 import torch 
 import torch.nn as nn 
 import torch.optim as optim
-from rnn import *
+#from rnn import *
 
 
-all_letters = string.ascii_letters + " .,;'-"
+
+all_letters = string.ascii_letters + ".,;'-"
 n_letters = len(all_letters) + 1 # Plus EOS marker
 print(all_letters)
-
+print(len(all_letters))
+print(n_letters)
 '''
 
 '''
@@ -86,16 +88,17 @@ def timeSince(since):
     s -= m * 60
     return '%dm %ds' % (m, s)
 
-def sample(category, startingLetter, max_length, rnn): 
-    with torch.no_grad(): 
+# Sample from a category and starting letter
+def sample(category, start_letter='A'):
+    with torch.no_grad():  # no need to track history in sampling
         category_tensor = categoryTensor(category)
-        input_tensor = inputTensor(startingLetter)
-        input_tensor= input_tensor.squeeze(dim = 0)
+        input = inputTensor(start_letter)
         hidden = rnn.initHidden()
-        output_name = startingLetter
 
-        for i in range(max_length): 
-            output, hidden = rnn(category_tensor, input_tensor, hidden )
+        output_name = start_letter
+
+        for i in range(max_length):
+            output, hidden = rnn(category_tensor, input[0], hidden)
             topv, topi = output.topk(1)
             topi = topi[0][0]
             if topi == n_letters - 1:
@@ -104,17 +107,34 @@ def sample(category, startingLetter, max_length, rnn):
                 letter = all_letters[topi]
                 output_name += letter
             input = inputTensor(letter)
+
         return output_name
 
-
-def samples(category, start_letters, max_length, rnn):
+# Get multiple samples from one category and multiple starting letters
+def samples(category, start_letters='ABC'):
     for start_letter in start_letters:
-        print(sample(category, start_letter, max_length, rnn))
+        print(sample(category, start_letter))
 
 
-def train(category_tensor, input_line_tensor, target_line_tensor, rnn, optimizer):
-    target_line_tensor = target_line_tensor.unsqueeze(-1)
+def train(category_tensor, input_line_tensor, target_line_tensor, optimizer):
+    target_line_tensor = target_line_tensor.unsqueeze_(-1)
     hidden = rnn.initHidden()
+    rnn.zero_grad()
+
+    loss = 0
+
+    for i in range(input_line_tensor.size(0)):
+        output, hidden = rnn(category_tensor, input_line_tensor[i], hidden)
+        l = criterion(output, target_line_tensor[i])
+        loss += l
+
+    loss.backward()
+
+    for p in rnn.parameters():
+        p.data.add_(-learning_rate, p.grad.data)
+
+    return output, loss.item() / input_line_tensor.size(0)
+    '''
     optimizer.zero_grad()
 
     loss = 0 
@@ -129,12 +149,37 @@ def train(category_tensor, input_line_tensor, target_line_tensor, rnn, optimizer
     optimizer.step()
 
     return output, loss.item() / input_line_tensor.size(0)
+     '''
+class RNN(nn.Module):
+    def __init__(self, input_size, hidden_size, output_size):
+        super(RNN, self).__init__()
+        self.hidden_size = hidden_size
+
+        self.i2h = nn.Linear(n_categories + input_size + hidden_size, hidden_size)
+        self.i2o = nn.Linear(n_categories + input_size + hidden_size, output_size)
+        self.o2o = nn.Linear(hidden_size + output_size, output_size)
+        self.dropout = nn.Dropout(0.1)
+        self.softmax = nn.LogSoftmax(dim=1)
+
+    def forward(self, category, input, hidden):
+        input_combined = torch.cat((category, input, hidden), 1)
+        hidden = self.i2h(input_combined)
+        output = self.i2o(input_combined)
+        output_combined = torch.cat((hidden, output), 1)
+        output = self.o2o(output_combined)
+        output = self.dropout(output)
+        output = self.softmax(output)
+        return output, hidden
+
+    def initHidden(self):
+        return torch.zeros(1, self.hidden_size)
+
 
 category_lines = {}
 all_categories = []
 
-n_iters = 10#50000
-print_every = 1#5000
+n_iters = 100000
+print_every = 5000
 plot_every = 500
 all_losses = []
 total_loss = 0 # Reset every plot_every iters
@@ -162,11 +207,12 @@ if n_categories == 0:
 
 
 
-rnn = RNN(dropout_rate, n_categories, input_size, hidden_size, output_size)
+#rnn = RNN(dropout_rate, n_categories, input_size, hidden_size, output_size)
+rnn= RNN(n_letters, 128, n_letters)
 optimizer = optim.Adam(rnn.parameters(), lr = learning_rate)
 
 for iter in range(1, n_iters + 1):
-    output, loss = train(*randomTrainingExample(), rnn, optimizer)
+    output, loss = train(*randomTrainingExample(), optimizer)
     total_loss += loss
 
     if iter % print_every == 0:
@@ -176,7 +222,9 @@ for iter in range(1, n_iters + 1):
         all_losses.append(total_loss / plot_every)
         total_loss = 0
 
-samples('English', 'ABCXYZ', max_length, rnn)
-samples('Russian', 'ABCRUSX', max_length, rnn)
-samples('Spanish', 'ABCXYZSPA', max_length, rnn)
-samples('Chinese', 'CHI', max_length, rnn)
+
+  
+samples('English', 'ENG')
+samples('Russian', 'RUS')
+samples('Spanish', 'SPA')
+samples('Chinese', 'CHI')
