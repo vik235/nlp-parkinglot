@@ -12,7 +12,7 @@ class RNN(nn.Module):
         self.i2o = nn.Linear(self.n_categories + self.input_size + self.hidden_size, self.output_size)
         self.i2h = nn.Linear(self.n_categories + self.input_size + self.hidden_size, self.hidden_size)
         self.o2o = nn.Linear(self.output_size + self.hidden_size, self.output_size)
-        self.dropout = nn.Dropout(self.dropout_rate)
+        self.dropout = nn.Dropout(0.1)
         self.softmax = nn.LogSoftmax(dim = 1)
 
     def forward(self, category, input, hidden):
@@ -21,7 +21,7 @@ class RNN(nn.Module):
         hidden = self.i2h(input_combined)
         combined_output = torch.cat((output, hidden), dim = 1)
         output = self.o2o(combined_output)
-        output = self.dropout(combined_output)
+        output = self.dropout(output)
         output = self.softmax(output)
         return output, hidden
 
