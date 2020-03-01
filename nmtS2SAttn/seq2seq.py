@@ -1,6 +1,8 @@
 import torch 
 import torch.nn as nn 
 from typing import Tuple
+from torch import Tensor
+import torch.nn.functional as F
 
 class Seq2Seq(nn.Module):
     def __init__(self, 

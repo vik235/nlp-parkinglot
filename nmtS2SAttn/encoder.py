@@ -1,6 +1,8 @@
 import torch 
 import torch.nn as nn 
 from typing import Tuple
+from torch import Tensor
+import torch.nn.functional as F
 
 class Encoder(nn.Module):
     def __init__(self, input_dim: int, emb_dim: int, enc_hid_dim: int, dec_hid_dim: int, dropout: float):

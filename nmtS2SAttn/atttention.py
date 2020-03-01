@@ -1,9 +1,11 @@
 import torch 
 import torch.nn as nn 
 from typing import Tuple
+from torch import Tensor
+import torch.nn.functional as F
 
 class Attention(nn.Module):
-    def __init__(self, enc_hidden_dim: int, dec_hidden_dim: int, attention_dim: int):
+    def __init__(self, enc_hid_dim: int, dec_hid_dim: int, attn_dim: int):
         super(Attention, self).__init__()
         self.enc_hid_dim = enc_hid_dim
         self.dec_hid_dim = dec_hid_dim
