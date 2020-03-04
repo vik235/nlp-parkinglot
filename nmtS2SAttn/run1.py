@@ -14,6 +14,7 @@ import random
 import math
 import time
 
+from train import *
 SEED = 1234
 
 random.seed(SEED)
@@ -428,3 +429,49 @@ def init_weights(m: nn.Module):
             
 print(model.apply(init_weights))
 print(model_mod_attn.apply(init_weights))
+
+def count_parameters(model: nn.Module):
+    return sum(p.numel() for p in model.parameters() if p.requires_grad)
+
+print(f'The model has {count_parameters(model):,} trainable parameters')
+print(f'The model has {count_parameters(model_mod_attn):,} trainable parameters')
+
+optimizer = optim.Adam(model.parameters())
+optimizer_mod_attn = optim.Adam(model_mod_attn.parameters())
+PAD_IDX = TRG.vocab.stoi['<pad>']
+criterion = nn.CrossEntropyLoss(ignore_index = PAD_IDX)
+
+MODEL_PATH = 'deepSummary-model.pt'
+MODEL_PATH_MOD_ATTN = 'deepSummary-model-modified_attn.pt'
+
+N_EPOCHS = 100
+CLIP = 1
+
+best_valid_loss = float('inf')
+
+for epoch in range(N_EPOCHS):
+    
+    start_time = time.time()
+    
+    train_loss = train(model_mod_attn, train_iterator, optimizer_mod_attn, criterion, CLIP)
+    valid_loss = evaluate(model_mod_attn, valid_iterator, criterion)
+    
+    end_time = time.time()
+    
+    epoch_mins, epoch_secs = epoch_time(start_time, end_time)
+    
+    if valid_loss < best_valid_loss:
+        best_valid_loss = valid_loss
+        torch.save(model_mod_attn.state_dict(), MODEL_PATH_MOD_ATTN)
+    
+    print(f'Epoch: {epoch+1:02} | Time: {epoch_mins}m {epoch_secs}s')
+    print(f'\tTrain Loss: {train_loss:.3f} | Train PPL: {math.exp(train_loss):7.3f}')
+    print(f'\t Val. Loss: {valid_loss:.3f} |  Val. PPL: {math.exp(valid_loss):7.3f}')
+
+    model_mod_attn.load_state_dict(torch.load(MODEL_PATH_MOD_ATTN))
+
+test_loss = evaluate(model_mod_attn, test_iterator, criterion)
+
+print(f'| Test Loss: {test_loss:.3f} | Test PPL: {math.exp(test_loss):7.3f} |')
+
+
