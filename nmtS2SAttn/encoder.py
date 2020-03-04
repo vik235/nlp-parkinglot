@@ -19,11 +19,20 @@ class Encoder(nn.Module):
         self.fc = nn.Linear(enc_hid_dim*2, dec_hid_dim)
         self.dropout = nn.Dropout(dropout)
 
-    def forward(self, src: Tensor) -> Tuple[Tensor]:
+    def forward(self, src: Tensor, src_len: int) -> Tuple[Tensor]:
         # src : (src_sent_len , batch_size)
+        # src_len : (batch_size)
         embedded = self.dropout(self.embedding(src))
         #embedded = (src_sent_length, batch_size, emb_dim)
-        outputs, hidden = self.rnn(embedded)
+        packed_embedded = nn.utils.rnn.pack_padded_sequence(embedded, src_len)
+        packed_outputs, hidden = self.rnn(packed_embedded)
+        #packed_outputs is a packed sequence containing all hidden states
+        #hidden is now from the final non-padded element in the batch
+
+        outputs, _ = nn.utils.rnn.pad_packed_sequence(packed_outputs)
+        #outputs is now a non-packed sequence, all hidden states obtained
+        # when the input is a pad token are all zeros
+
         #outputs = (src_sent_length, batch_size, dec_hid_dim*2), needed for calculating attentions 
         #hidden  = (2 - # of directions, batch_size, hidden_size))
 
