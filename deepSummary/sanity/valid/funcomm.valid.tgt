@@ -1,0 +1,15 @@
+if mins or rate is less then zero throw exception
+not in use
+not in use
+checks user belongs to community and he is an admin or owner
+new if posted less than 7days
+if mins or rate is less then zero throw exception
+not in use
+checks user belongs to community and he is an admin or owner
+checks weather session has theme display
+not in use
+voodoo to scale the image to 200x200
+not in use
+and scrawl the text on the image in 10 rows of 20 chars
+gets the price value
+called for every line of the file

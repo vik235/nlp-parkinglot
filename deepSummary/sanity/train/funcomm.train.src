@@ -1,0 +1,34 @@
+34317578	public list get member options string field system out println get member options try class clazz property utils get property type this field return query tools query all objects clazz catch illegal access exception e e print stack trace catch invocation target exception e e print stack trace catch no such method exception e e print stack trace return collections empty list
+34317580	public list get members class type return query tools query all objects type
+34317584	private string get model conf entries list string class def files string buffer buff new string buffer for string file class def files buff append t t mapping resource file n return buff to string
+34317755	private void init cell class cell class class editing cell get attributes get cell class table fields set model new fields table model cell class table fields set class id field string utils camelize cell class get simple name true id table fields set enabled new table has cell got source btn add set enabled table fields is enabled btn remove set enabled table fields is enabled btn cancel set enabled table fields is enabled
+34317760	public object get cell editor value return editing cell get user object
+34317848	public boolean has cell got source return class utils get source class editing cell get attributes get cell class null
+34317889	private string get model conf entries list string class def files string buffer buff new string buffer for string file class def files buff append t t mapping file file n return buff to string
+34317893	public void create page file output file string layout source throws ioexception if output file get parent file exists output file get parent file mkdirs file writer fw new file writer output file false fw write layout source fw close
+34317908	public jcomponent get preview return new jpanel
+12735586	public void draw scene
+12735587	public void draw targets float lightpos cam x cam z perspectmin cam y perspectmin 2 1 float buffer light pos alloc floats lightpos gl11 gl light gl11 gl light0 gl11 gl position light pos gl11 gl matrix mode gl11 gl modelview gl11 gl push matrix gl11 gl load identity render targets false gl11 gl pop matrix restore
+12735593	public void process scene gl11 gl clear gl11 gl color buffer bit gl11 gl depth buffer bit draw scene draw targets draw overlay gl11 gl flush
+12735599	public display mode find display mode int width int height int bpp try display mode modes display get available display modes for int i 0 i modes length i system out println modes i if modes i get width width modes i get height height modes i get bits per pixel bpp modes i get frequency 60 try display set display mode modes i catch lwjglexception e system err println e get message return modes i catch lwjglexception e system err println e get message return null
+12735600	private void process game switch fsm case reset play background sound track if alextvorbis al10 al gen sources al source al10 al sourcef al source get 0 al10 al gain 0 5f al10 al sourcei al source get 0 al10 al buffer al buffer get 0 al10 al sourcei al source get 0 al10 al looping al10 al true al10 al source play al source get 0 fsm fsm run break
+12735608	public void init al banner starting open al try al create info engine t al10 al get string al10 al renderer info version t al10 al get string al10 al version info vendor t al10 al get string al10 al vendor info exts t al10 al get string al10 al extensions if al10 al is extension present al ext vorbis alextvorbis true else warning ogg vorbis sound not available catch lwjglexception e error e get message
+12735623	public void dump string fname serialize and dump
+12735627	public void load string fname try rootobj load ac3 d fname catch ioexception e system err println ac3 d e get message in fname system exit 1
+12735629	private ac3 dobject load ac3 d string fname throws ioexception ac3 dobject res new ac3 dobject buffered reader file new buffered reader new input stream reader this get class get resource as stream fname string buf file read line if buf starts with ac3 d throw new ioexception invalid header if buf ends with b system out println ac3 d unsupported version res read object file null file close calc vertexes res return res
+12735661	public texture get texture string resource name throws ioexception texture tex texture table get resource name if tex null return tex system out println loading texture resource name tex get texture resource name gl11 gl texture 2 d target gl11 gl rgba dst pixel format gl11 gl linear min filter unused gl11 gl linear table put resource name tex return tex
+12735688	private void draw scene gl gl clear buffer gl gl clear gl gl color buffer bit gl gl depth buffer bit render sky ground water
+12735691	public void play targets al al float perspective cam x cam y 0 0 1 0 set cam position al al listener3f al al position cam x cam y 4 cam z al al listenerfv al al orientation perspective 0 position the sounds waves 1 play al cam w 2 cam h 2 0 al al true play the background track waves 0 play al cam x cam y 4 cam z 4 al al true
+12735694	private void banner string msg system out format s n msg
+12735735	public void load config try config load from xml this get class get class loader get resource as stream this cfgfile config load from xml new file input stream new file this cfgfile catch ioexception e system err println e get message
+12735736	public void save config try config store to xml new file output stream new file this cfgfile ephemera configuration file catch ioexception e system err println e get message
+12735756	public void key released key event e switch e get key code case key event vk f12 info saving screenshot fsm fsm screenshot break case key event vk escape ephem stop break debug kbd up e get key code
+12735759	public void display changed glauto drawable gldraw boolean mode boolean dev
+47918667	public void encode object obj throws ioexception inner encoder obj null
+47918670	public object decode throws jsonexception return decode null
+47918672	public void encode object obj class clazz throws ioexception inner encoder obj clazz
+47918677	public object decode type type throws jsonexception try class clazz get class type jsonparsing parsing new jsonparsing in return decoder0 parsing object clazz type catch jsonexception e throw e catch exception e throw new jsonexception e
+21963421	public dice int n int b base b number n modifier 0
+21963423	public dice int n int b int m base b number n modifier m
+21963431	public int get next value double tmp 0 0 for int i 0 i number i math random base 1 0 base 1 so we always add 1 tmp math random base 1 1 return int math round tmp modifier
+21963472	public int value return current
