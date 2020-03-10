@@ -1,0 +1,499 @@
+if mins or rate is less then zero throw exception
+not in use
+not in use
+checks user belongs to community and he is an admin or owner
+new if posted less than 7days
+if mins or rate is less then zero throw exception
+not in use
+checks user belongs to community and he is an admin or owner
+checks weather session has theme display
+not in use
+voodoo to scale the image to 200x200
+not in use
+and scrawl the text on the image in 10 rows of 20 chars
+gets the price value
+called for every line of the file
+opens a session and will not bind it to a session context
+closes the session factory
+creates a timeseries for the pricetype of the histprices
+creates the symbol
+this adds a property descriptor for the criteria identifier feature
+this adds a property descriptor for the name feature
+this adds a property descriptor for the symbol string feature
+this adds a property descriptor for the factor feature
+this adds a property descriptor for the currency feature
+this adds a property descriptor for the volume feature
+this adds a property descriptor for the trading start time feature
+this adds a property descriptor for the spread feature
+this adds a property descriptor for the trading end time feature
+this adds a property descriptor for the strategy id feature
+this adds a property descriptor for the value feature
+this adds a property descriptor for the start date feature
+this adds a property descriptor for the future style feature
+this adds a property descriptor for the comment feature
+this adds a property descriptor for the currency feature
+this adds a property descriptor for the mode feature
+this adds a property descriptor for the initial margin feature
+this adds a property descriptor for the end date feature
+this adds a property descriptor for the creation date feature
+this adds a property descriptor for the active feature
+this adds a property descriptor for the timebase feature
+this adds a property descriptor for the date feature
+this adds a property descriptor for the identifier feature
+this adds a property descriptor for the value feature
+this adds a property descriptor for the option type feature
+this adds a property descriptor for the strategy feature
+this adds a property descriptor for the take profit feature
+this adds a property descriptor for the int option feature
+this adds a property descriptor for the stop loss feature
+this adds a property descriptor for the open feature
+this adds a property descriptor for the close price feature
+this adds a property descriptor for the double option feature
+this adds a property descriptor for the string option feature
+this just records the information
+create a new model
+builds the composite
+b mandatory to be called b
+creates the combiner
+returns the label for the specified type name
+we will set up a dummy model to initialize tree heararchy
+creates a chart
+returns the close value for one item in a series
+returns the close value as a double primitive for an item within a
+returns the high value for one item in a series
+returns the high value as a double primitive for an item within a
+returns the number of items in the specified series
+returns the low value for one item in a series
+returns the low value as a double primitive for an item within a
+returns the open value for one item in a series
+returns the open value as a double primitive for an item within a
+returns the volume value for one item in a series
+returns the volume value as a double primitive for an item within a
+returns the x value for one item in a series
+returns the x value for one item in a series as a date
+returns the y value for one item in a series
+handles activation of the editor or its associated views
+gets whether leading and trailing whitespace characters are being trimmed
+sets whether leading and trailing whitespace characters should be trimmed
+gets the character being used as the column delimiter
+sets the character to use as the column delimiter
+sets the character to use as the record delimiter
+creates a new adapter for an object of class
+creates a new adapter for an object of class
+creates a new adapter for an object of class
+creates a new adapter for an object of class
+creates a new adapter for an object of class
+gets the character to use as a text qualifier in the data
+sets whether text qualifiers will be used while parsing or not
+gets the character being used as a comment signal
+sets the character to use as a comment signal
+gets whether comments are being looked for while parsing or not
+returns a diagnostic describing the errors and warnings listed in the resource
+safety caution to prevent the parser from using large amounts of memory
+safety caution to prevent the parser from using large amounts of memory
+gets the count of columns found in this record
+gets the index of the current record
+gets the count of headers read in by a previous call to
+returns the current column value for a given column index
+returns the current column value for a given column header name
+read the first record of data as column headers
+returns the column header value for a given column index
+gets the corresponding column index for a given column header name
+skips the next record of data by parsing each column
+closes and releases all related resources
+this accesses a cached version of the property sheet
+sets the current positions
+sets the current positions
+takes care of handles without parents
+this function is called to give the handled object the opportunity to
+collects the convenience set of selected handles for later use
+always call detach on an handled object before you throw it away
+paints either the marking rectangle or the map size mark
+installs a layer in the layeredpane and activates it the layer have to
+reverses the install function
+makes sure that the local directory is created
+captures when a contextmap has been selected in the list
+captures when the container is changed
+initializes tree settings and adds listeners
+removes all sessions from the root node and adds them from new
+shows the dialog and returns immediately
+adds sessions as nodes with the root node as parent
+shows the dialog to browse through the sessions
+reacts on button clicks from within the dialog
+opens a context map
+changes the icons of the tree
+initializes the combo box for choosing sessions with a model containing a
+updates the list of context maps according to the specified session
+opens a context map
+adds maps to a session node before it collapses
+sets the selected node value if the the selected value in the tree
+switches the detailed view on and off
+called when something goes wrong and the activity is cancelled
+completes the process and closes the dialog depending on the setting
+loads available locations from the configuration
+sets the percentage of the progress bar
+sets the visibility of the dialog
+disposes the dialog
+starts the publishing process
+shows the dialog
+used to read information out of the dialog
+deals with the most common key events
+loads the tree model from an xml file
+creates the tree model
+creates and returns the manage bookmarks tool
+shows the dialog
+creates a new node as sibling or child of an already existing node
+shows a popup menu at the current mouse position
+changes the icons of the tree
+we show our own tooltips
+shows a dialog to edit an already existing location entry
+removes the currently selected entry from the list
+determines whether the drop target dropped element combination is
+stores the settings and disposes the window
+stores the settings to the configuration
+if pixel is transparent return the fixed color otherwise return the
+should be called before
+paints the matte border
+returns whether or not the border is opaque
+override to add behaviour such as move description to front etc
+override to add behaviour such as move description to back etc
+a helpfull function for unregistering the listeners with a jcomponent
+removes all popups
+removes changes activates descriptions and restarts the timer
+activates the description currently in focus if any
+the timer calls this function when the description should popup
+locks a description so it stays when you go on to next component
+removes the current description locked or not
+removes the given component from the right panel
+by overriding it empty we make sure that there is
+removes the given component from the left panel
+calculates and sets the location for the left divider
+adds a tool to this tool set
+removes a tool from this tool set
+removes all tools from this tool set
+returns the currently active exclusive tool
+returns the name of the tool
+returns the menu item for a given tool
+fetch all tools in this menu
+adds a tool to the menu
+removes a tool from this menu
+removes all tools from this menu
+removes a tool from this menu
+adds a tools menu to the menu
+fetch all tools in this menu
+removes all tools from this menu
+removes the file lock
+deletes the lock file
+sets the position of the scrollbars content to the left upper corner
+adds an action listener to the close button
+removes an action listener from the close button
+calculates a set of direct and indirect markes from the original mark
+writes the port where the socket is listening at into a file
+this method does not return ideally started as thread
+writes the port where the socket is listening at into a file
+the filternode is created from a concept
+returns the filtertag of this node
+returns the refine at given index of this node
+returns the number of refines attached to this node
+returns the node above this node
+sets the node above this node
+this function is the entry point for event handling for popups
+returns the main mime type
+returns a java file object pointing to the file represented by this
+returns the subtype
+returns the code scheme code part of the uri
+a description originates from either the map or a concept
+returns the code scheme specific code part of the uri
+returns the code fragment code part of the uri
+a description originates from either the map or a concept
+returns a string without the code fragment code part of the uri
+the direction to set
+fires an edit event to all listeners and marks the
+tries to parse a uri using this resources uri as base uri
+returns the cache of this resource store
+loads a concept referencing it in the cache
+returns whether this formathandler can deal with a specified uri
+returns the file size of the cached file
+returns the date of the last modification
+writes a string to a file
+returns the date and time when the container was cached
+creates a full directory path if it does not exist
+tries to return an ftpfile object
+creates a full directory path if it does not exist
+reads the collaborilla host and port from the conzilla settings and
+stores the publishing locations in the conzilla configuration
+tells whether a location is a directory
+converts a default list model to a list and calls store locations list
+requests the metadata of a container or context map
+request the metadata of a container or context map
+returns the publishing locations as a default list model
+constructs a tooltip out of the available information in this object
+requests a list of required containers dependencies of a contextmap
+checks whether a url is a directory
+requests a list of required containers dependencies of a contextmap
+requests a list of optional containers contributions of a contextmap
+stores the setting of the last used destination information
+checks for the date of creation of a file
+requests a list of optional containers contributions of a contextmap
+queries the collaborilla service to resolve a given uri into a url
+this method takes the revision of the published container into
+queries the collaborilla service to resolve a given uri into a url
+this method takes the revision of the published container into
+encodes a location information object so that it can be stored in the
+detects whether a context map container or anything with a uri has been
+returns the hostname of the collaborilla service
+sets the hostname of the collaborilla service
+sets the namespace of the current user
+loads an already existing configuration
+sets the modified status of this configuration
+creates a new configuration
+enables a timer task and a shutdown hook to store a modified configuration
+this class is implemented as singleton so we want to avoid having
+contructs the users personal uri with the help of the personal namespace
+converts a container into an input stream
+checks whether the information container of the current session is required
+loads deserializes an existing index from disk into memory
+creates a new index and eventually non existing cache directories
+a marker for the method flush that something has changed
+tells whether the cache index has been modified and therefore needs to be
+fires a property change event with some information
+adds a single input stream consumer object to the internal collection of
+reads from an uncompressed input stream and writes to an output stream
+returns an input stream which will contain the same data as the source
+fires a property change event with an error message
+fires a property change event to signal that the progress percentage has
+waits until all action threads are finished
+returns the amount of bytes which have been read from the input stream
+fires a property change event to signal that the process has been finished
+fires a property change event to signal that the process has been
+initializes stuff use when to create a new component
+should be called whenever the resource is loaded from model or whenever
+called to accomplish initialize a rdfcomponent in the the given rdfmodel
+removes the statement layout from the two connecting concept layouts
+typically updating of stuff that was initialized with initialize in model
+here this rdfcomponent has a chance to load information from the given
+returns the subjet of this statement layout
+returns the object of this statement layout
+returns the jena component corresponding to this rdfcomponent
+overload for correct type handling
+tells wether to stay in the same model as the treenode above when
+help function that extracts the first style it can find from a
+overload for correct type handling
+change this whenever you want to create new layers in new models e
+retrieves a style given a identifier for it that is from
+answers wether a triple should be created when a statement is created
+uses the given node type in the create constructor as type
+sets the mode regarding if triples should be created when a statement is
+a new mirror is initiated
+the new mirror is set to the new mirror
+recursively removes this node and all its children from all models
+recursively removes this node and all its children from the given model
+removes this rdftree tag node from the given model i
+returns a resource i
+adds a visible data tag
+removes a visible data tag
+at start there is one subpopulation with n0 individuals all having the
+adds mutation has no effect if already present
+burn in time in generations before recording starts
+whole locus mutation rate per generation
+whole locus recombination rate per generation
+relative fitness advantage of advantageous mutation
+returns the rest path portion of the url requesting the servlet e
+this method initializes this
+this method initializes j text field inicial
+this method initializes j text field final
+this method initializes j text field alfabeto
+this method initializes text area producao
+this method initializes j jmenu bar principal
+this method initializes j menu principal
+this method initializes j menu sobre
+this method initializes j menu item desenvolvedores
+this method initializes j text field conj estados
+this method initializes j text field1
+this method initializes j text field2
+this method initializes btn inserisci
+this method initializes j combo box
+this method initializes j button
+this method initializes j button1
+this method initializes j ripeti password
+this method initializes j button2
+this method initializes j text field
+this method initializes j text field1
+this method initializes j text field2
+this method initializes j text field3
+this method initializes j text field4
+this method initializes j button1
+this method initializes j text field5
+this method initializes j text field6
+this method initializes j text field7
+this method initializes j text field8
+this method initializes j text field9
+this method initializes j button
+this method initializes j text field
+this method initializes j text field1
+this method initializes j button1
+this method initializes j button2
+this method initializes j combo box
+this method initializes j content pane
+this method initializes j text field
+this method initializes j text field1
+this method initializes j text field2
+this method initializes j text field
+this method initializes j text field3
+this method initializes j text field4
+this method initializes j combo box
+this method initializes j text field1
+this method initializes j button
+this method initializes j text field2
+this method initializes j combo box1
+this method initializes j text field3
+this method initializes j button1
+this method initializes j text field4
+this method initializes j button2
+this method initializes j text field5
+this method initializes j text field6
+this method initializes j button3
+this method initializes j button visualizza incassi
+this method initializes j text field1
+this method initializes j text field
+this method initializes j text field1
+this method initializes j text field2
+this method initializes j text field2
+this method initializes j text field3
+this method initializes j text field4
+this method initializes j button1
+this method initializes j text field3
+this method initializes j text field5
+this method initializes j text field6
+this method initializes j text field7
+this method initializes j text field8
+this method initializes j text field9
+this method initializes j button
+this method initializes j button nuovo
+this method initializes j text field
+this method initializes j text field1
+this method initializes j text field2
+this method initializes j text field3
+this method initializes j menu gestione pwd
+this method initializes j text field4
+this method initializes j button
+this method initializes j button1
+this method initializes j text field skede
+this method initializes j combo box
+this method initializes j button2
+this method initializes j button
+this method initializes j combo box1
+this method initializes j tabbed pane fatture
+this method initializes j text field1
+this method initializes j text field2
+this method initializes j text field3
+this method initializes j text field4
+this method initializes j button3
+this method initializes j combo box
+this method initializes j button reset
+this method initializes j button
+this method initializes j text field
+this method initializes j text field1
+this method initializes j button1
+this method initializes j text field2
+this method initializes j text field3
+this method initializes j text field4
+this method initializes j button2
+this method initializes j button cerca clie
+this method initializes j combo box
+this method initializes j button
+this method initializes j combo box1
+this method initializes j button stampa
+this method initializes j text field importo
+this method initializes j button1
+this method initializes j button2
+this method initializes j content pane
+this method initializes j button3
+this method initializes j jmenu bar
+this method initializes j text field
+this method initializes j tabbed pane
+this method initializes j text field1
+this method initializes j menu item
+this method initializes j text field2
+this method initializes j button succ cliente
+this method initializes j text field3
+this method initializes j tabbed pane
+this method initializes j text field4
+this method initializes j button clie precedente
+this method initializes j text field5
+this method initializes j text field
+this method initializes j text field6
+this method initializes j text field1
+this method initializes j text field7
+this method initializes j combo box1
+this method initializes j button ass successiva
+this method initializes j text field8
+this method initializes j text field9
+this method initializes j button
+this method initializes j button close
+this method initializes j text field1
+this method initializes j button1
+this method initializes j text field2
+this method initializes j combo box2
+this method initializes j text field3
+this method initializes j button1
+this method initializes j text field4
+this method initializes j panel bottoni
+this method initializes j button nuovo
+this method initializes j button2
+this method initializes j panel cont
+this method initializes j panel vista
+this method initializes j button2
+this method initializes j text field2
+this method initializes j button nuova
+this method initializes j text field11
+this method initializes j combo box11
+this method initializes j button stampa out
+this method initializes j button3
+this method initializes j combo box12
+this method initializes j button3
+this method initializes j button aggiorna
+this method initializes txt user
+this method initializes j button
+this method initializes j panel
+this method initializes j text area
+this method initializes j button
+this method initializes j button11
+this method initializes j button reset
+this method initializes j button4
+this method initializes j content pane
+this method initializes j button
+this method initializes j button1
+this method initializes j scroll pane
+this method initializes j table1
+this method initializes j text field1
+this method initializes j button21
+this method initializes j text field4
+this method initializes j button1
+this method initializes j button cerca clie
+this method initializes j text field5
+this method initializes j button5
+this method initializes j button111
+this method initializes j button2
+this method initializes j text field accessori
+this method initializes j button211
+this method initializes j button cerca ass
+this method initializes j date chooser
+this method initializes j date chooser1
+this method initializes j button6
+this method initializes j text field8
+this method initializes j text field
+this method initializes j text field41
+this method initializes j text field42
+this method initializes j text field g
+this method initializes j button4
+this method initializes j text field311
+this method initializes j radio button
+this method initializes j button1111
+this method initializes j radio button1
+this method initializes j button7
+this method initializes j table1
+this method initializes j text field
+this method initializes j button1
+this method initializes j button2111
+this method initializes j table1
