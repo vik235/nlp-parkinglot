@@ -21,6 +21,7 @@ import random
 import math
 import time
 import os
+import csv
 
 from encoder import Encoder
 from encoderlayer import EncoderLayer
@@ -87,7 +88,7 @@ print('Built the Vocab of SRC and TRG')
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 #device = 'cpu'
 
-BATCH_SIZE = 128
+BATCH_SIZE = 256
 INPUT_DIM = len(SRC.vocab)
 OUTPUT_DIM = len(TRG.vocab)
 HID_DIM = 256
@@ -99,8 +100,8 @@ ENC_PF_DIM = 512
 DEC_PF_DIM = 512
 ENC_DROPOUT = 0.1
 DEC_DROPOUT = 0.1
-LEARNING_RATE = 0.0005
-N_EPOCHS = 10
+LEARNING_RATE = 0.001
+N_EPOCHS = 30
 CLIP = 1
 MODEL_NAME = 'deepSumm-model.pt'
 
@@ -510,6 +511,8 @@ print(f'The model has {count_parameters(model):,} trainable parameters')
 model.apply(initialize_weights)
 optimizer = torch.optim.Adam(model.parameters(), lr = LEARNING_RATE)
 criterion = nn.CrossEntropyLoss(ignore_index = TRG_PAD_IDX)
+train_losses = []
+valid_losses = []
 
 best_valid_loss = float('inf')
 time_started = time.time()
@@ -527,13 +530,22 @@ for epoch in range(N_EPOCHS):
 
     if valid_loss < best_valid_loss:
         best_valid_loss = valid_loss
+        print('\t','-'*5, f'Saving the model. Valid Loss - {valid_loss} and Best valid loss so far {best_valid_loss}','-'*5)
         torch.save(model.state_dict(), MODEL_NAME)
-    
+    train_losses.append(train_loss)
+    valid_losses.append(valid_loss)
     print(f'Epoch: {epoch+1:02} | Time: {epoch_mins}m {epoch_secs}s ||  Time Since Start: {start_mins}m {start_secs}s')
     print(f'\tTrain Loss: {train_loss:.3f} | Train PPL: {math.exp(train_loss):7.3f}')
     print(f'\t Val. Loss: {valid_loss:.3f} |  Val. PPL: {math.exp(valid_loss):7.3f}')
 
 model.load_state_dict(torch.load(MODEL_NAME))
+
+with open(file = './output/train_output.csv', mode ='w') as f:
+            writer = csv.writer(f, delimiter='\n', quotechar='\"', quoting=csv.QUOTE_MINIMAL)
+            writer.writerows([train_losses])
+with open(file = './output/valid_output.csv', mode ='w') as f:
+            writer = csv.writer(f, delimiter='\n', quotechar='\"', quoting=csv.QUOTE_MINIMAL)
+            writer.writerows([valid_losses])            
 
 eval_context = 'Test set'
 test_loss = evaluate(model, test_iterator, criterion, eval_context)
