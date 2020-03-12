@@ -121,8 +121,8 @@ def calculate_bleu(data, src_field, trg_field, model, device, max_len = 50):
         trgs.append([trg])
         pred_trgs_out.append(pred_trg_out)
         
-        with open(file = './output/test_output.csv', mode ='w') as f:
-            writer = csv.writer(f, delimiter='\n', quotechar='\"', quoting=csv.QUOTE_MINIMAL)
-            writer.writerows([pred_trgs_out])
+    with open(file = './output/test_output.csv', mode ='w') as f:
+        writer = csv.writer(f, delimiter='\n', quotechar='\"', quoting=csv.QUOTE_MINIMAL)
+        writer.writerows([pred_trgs_out])    
 
     return bleu_score(pred_trgs, trgs)
