@@ -2,14 +2,14 @@ import os
 import csv
 import random
 
-sample_size_train = 100000
-sample_size_valid = 3000
-sample_size_test = 3000
+sample_size_train = 1937135
+sample_size_valid = 10000
+sample_size_test = 10000
 
 
 functionList = list()
 pidfunctions = list() # Keeps the project Id for tracking / error analysis
-with open(file = './funcom_tokenized/funcom_tokenized/train/functions.train', ) as f:
+with open(file = './funcom_tokenized/train/functions.train', ) as f:
     reader = csv.reader(f, dialect='excel', delimiter='\t')
     for row in reader:
         functionList.append(row[1])
@@ -17,7 +17,7 @@ with open(file = './funcom_tokenized/funcom_tokenized/train/functions.train', ) 
 
 commentList = list()
 pidComments = list() # Keeps the project Id for tracking / error analysis 
-with open(file = './funcom_tokenized/funcom_tokenized/train/comments.train', ) as f:
+with open(file = './funcom_tokenized/train/comments.train', ) as f:
     reader = csv.reader(f, dialect='excel', delimiter='\t')
     for row in reader:
         commentList.append(row[1])
@@ -53,7 +53,7 @@ with open(file = './data/pids/functions.train.pid.tgt', mode ='w') as f:
 
 functionList = list()
 pidfunctions = list() # Keeps the project Id for tracking / error analysis
-with open(file = './funcom_tokenized/funcom_tokenized/valid/functions.valid', ) as f:
+with open(file = './funcom_tokenized/valid/functions.valid', ) as f:
     reader = csv.reader(f, dialect='excel', delimiter='\t')
     for row in reader:
         functionList.append(row[1])
@@ -61,7 +61,7 @@ with open(file = './funcom_tokenized/funcom_tokenized/valid/functions.valid', ) 
 
 commentList = list()
 pidComments = list() # Keeps the project Id for tracking / error analysis 
-with open(file = './funcom_tokenized/funcom_tokenized/valid/comments.valid', ) as f:
+with open(file = './funcom_tokenized/valid/comments.valid', ) as f:
     reader = csv.reader(f, dialect='excel', delimiter='\t')
     for row in reader:
         commentList.append(row[1])
@@ -97,7 +97,7 @@ with open(file = './data/pids/functions.valid.pid.tgt', mode ='w') as f:
 #####################################################################################################
 functionList = list()
 pidfunctions = list() # Keeps the project Id for tracking / error analysis
-with open(file = './funcom_tokenized/funcom_tokenized/test/functions.test', ) as f:
+with open(file = './funcom_tokenized/test/functions.test', ) as f:
     reader = csv.reader(f, dialect='excel', delimiter='\t')
     for row in reader:
         functionList.append(row[1])
@@ -105,7 +105,7 @@ with open(file = './funcom_tokenized/funcom_tokenized/test/functions.test', ) as
 
 commentList = list()
 pidComments = list() # Keeps the project Id for tracking / error analysis 
-with open(file = './funcom_tokenized/funcom_tokenized/test/comments.test', ) as f:
+with open(file = './funcom_tokenized/test/comments.test', ) as f:
     reader = csv.reader(f, dialect='excel', delimiter='\t')
     for row in reader:
         commentList.append(row[1])
